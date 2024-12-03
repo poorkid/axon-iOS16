@@ -1,7 +1,6 @@
 #import "Preferences.h"
 #include <unistd.h>
 #include <spawn.h>
-#include <roothide.h>
 #include <Foundation/Foundation.h>
 
 @implementation AXNPrefsListController
@@ -25,9 +24,9 @@
         
         self.iconView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,10,10)];
         self.iconView.contentMode = UIViewContentModeScaleAspectFit;
-        const char *iconPathC = jbroot("/Library/PreferenceBundles/AxonPrefs.bundle/icon@2x.png");
-        NSString *iconPath = [NSString stringWithUTF8String:iconPathC];
-        self.iconView.image = [UIImage imageWithContentsOfFile:iconPath];
+        self.iconView.image = [UIImage imageWithContentsOfFile:@"/var/jb/Library/PreferenceBundles/AxonPrefs.bundle/icon@2x.png"];
+        //NSString *iconPath = [NSString stringWithUTF8String:iconPathC];
+        //self.iconView.image = [UIImage imageWithContentsOfFile:iconPath];
         self.iconView.translatesAutoresizingMaskIntoConstraints = NO;
         self.iconView.alpha = 0.0;
         [self.navigationItem.titleView addSubview:self.iconView];
@@ -60,9 +59,9 @@
     self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0,0,200,200)];
     self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,200,200)];
     self.headerImageView.contentMode = UIViewContentModeScaleAspectFill;
-    const char *bannerPathC = jbroot("/Library/PreferenceBundles/AxonPrefs.bundle/axon.png");
-    NSString *bannerPath = [NSString stringWithUTF8String:bannerPathC];
-    self.headerImageView.image = [UIImage imageWithContentsOfFile:bannerPath];
+    self.headerImageView.image = [UIImage imageWithContentsOfFile:@"/var/jb/Library/PreferenceBundles/AxonPrefs.bundle/axon.png"];
+    //NSString *bannerPath = [NSString stringWithUTF8String:bannerPathC];
+    //self.headerImageView.image = [UIImage imageWithContentsOfFile:bannerPath];
     self.headerImageView.translatesAutoresizingMaskIntoConstraints = NO;
     
     [self.headerView addSubview:self.headerImageView];
@@ -107,11 +106,11 @@
     self.headerImageView.frame = CGRectMake(0, offsetY, self.headerView.frame.size.width, 200 - offsetY);
 }
 
--(void)respring {
-    pid_t pid;
-    char* args[] = {"/usr/bin/killall", "backboardd", NULL};
-    posix_spawn(&pid, jbroot(args[0]), NULL, NULL, args, NULL);
-}
+//-(void)respring {
+//    pid_t pid;
+//    char* args[] = {"/usr/bin/killall", "backboardd", NULL};
+//    posix_spawn(&pid, jbroot(args[0]), NULL, NULL, args, NULL);
+//}
 
 @end
 
