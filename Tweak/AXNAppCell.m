@@ -350,7 +350,7 @@ UIView *getBlurView(CGRect frame) {
                     self.badgeLabel.alpha = 1.0;
                     break;
                 default:
-                    if (!self.darkMode) self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
+                    if (!self.darkMode) self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
                     else if (self.darkMode) self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
             }
         } completion:NULL];
