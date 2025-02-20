@@ -106,11 +106,10 @@
     self.headerImageView.frame = CGRectMake(0, offsetY, self.headerView.frame.size.width, 200 - offsetY);
 }
 
-- (void)respring:(id)sender {
-    NSTask *t = [[[NSTask alloc] init] autorelease];
-    [t setLaunchPath:@"/var/jb/usr/bin/killall"];
-    [t setArguments:[NSArray arrayWithObjects:@"backboardd", nil]];
-    [t launch];
+-(void)respring {
+    pid_t pid;
+    char* args[] = {"/var/jb/usr/bin/killall", "backboardd", NULL};
+    posix_spawn(&pid, (args[0]), NULL, NULL, args, NULL);
 }
 
 @end
