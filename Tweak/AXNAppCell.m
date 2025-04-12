@@ -257,7 +257,8 @@ UIView *getBlurView(CGRect frame) {
             [backgroundColor getRed:&red green:&green blue:&blue alpha:&alpha];
             int threshold = 105;
             int bgDelta = ((red * 0.299) + (green * 0.587) + (blue * 0.114));
-            UIColor *textColor = (255 - bgDelta < threshold) ? [UIColor blackColor] : [UIColor whiteColor];
+            //UIColor *textColor = (255 - bgDelta < threshold) ? [UIColor blackColor] : [UIColor whiteColor];
+            UIColor *textColor = (255 - bgDelta < threshold) ? [UIColor blackColor] : [UIColor blackColor];
             self.badgeLabel.backgroundColor = [backgroundColor copy];
             self.badgeLabel.textColor = [textColor copy];
           } else {
