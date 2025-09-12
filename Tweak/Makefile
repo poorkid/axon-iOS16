@@ -1,3 +1,4 @@
+THEOS_PACKAGE_SCHEME = rootless
 ARCHS = arm64 arm64e
 TARGET = iphone:14.4:14.4
 
